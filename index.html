@@ -59,17 +59,49 @@
             <div class="slides">
                 <section>
                     <section>
-                        <img class="fragment" src="img/news.jpg">
+                        <h2>Who am I?</h2>
                     </section>
                     <section>
-                        <img class="fragment" src="img/cat-react.gif">
+                        <h2>Hiren Hiranandani</h2>
                     </section>
                     <section>
-                        <img class="fragment" src="img/dog-oops.gif">
+                        <img class="fragment" src="img/quake.gif">
                     </section>
                     <section>
-                        <img class="fragment" src="img/awesome-trick.gif">
+                        <img class="fragment" src="img/guitar.gif">
                     </section>
+                    <section>
+                        <img class="fragment" src="img/haskell.jpg">
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/cook.gif">
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/screensaver.gif">
+                    </section>
+                    <section>
+                        <div class="logo_container fragment" style="margin-bottom: 50px;">
+                            <img height="150" width="900" style="box-shadow: none; border: none;" src="img/bold-radius.png">
+                        </div>
+                        <ul>
+                            <li class="fragment">Typesafe Training</li>
+                            <li class="fragment">Custom Training</li>
+                            <li class="fragment">Code-Review</li>
+                            <li class="fragment">Mentoring</li>
+                            <li class="fragment">Development</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">&quot;Scala Guy&quot;</h2>
+                        <ul>
+                            <li class="fragment">Do it in Scala! <span class="fragment">(not in like that...)</span></li>
+                            <li class="fragment">Awesome Libraries</li>
+                            <li class="fragment">Reactive == Win</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
                     <section>
                         <h2 style="margin-bottom: 50px;">Terminology</h2>
                         <h5 class="fragment" style="margin-bottom: 50px;">Shamelessly &quot;borrowed&quot; from <em>@tef</em></h2>
@@ -78,38 +110,6 @@
                             <li class="fragment">Elegant - the only use case is making me feel smart</li>
                             <li class="fragment">Minimal - you're going to have to write more code than I did</li>
                             <li class="fragment">Configurable - it's your job to make it usable</li>
-                            <li class="fragment">Startup - a business without a business plan</li>
-                        </ul>
-                    </section>
-                </section>
-
-                <section>
-                    <section>
-                        <h2>Who am I?</h2>
-                    </section>
-                    <section>
-                        <img class="fragment" src="img/screensaver.gif">
-                    </section>
-                    <section>
-                        <h2 style="margin-bottom: 50px;">Scala Consultant</h2>
-                        <div class="logo_container fragment">
-                            <img height="150" width="900" style="box-shadow: none; border: none;" src="img/bold-radius.png">
-                        </div>
-                    </section>
-                    <section>
-                        <h2 style="margin-bottom: 50px;">Scala Trainer</h2>
-                        <ul>
-                            <li class="fragment">Typesafe Certified</li>
-                            <li class="fragment">Love It!</li>
-                            <li class="fragment">Trained in Chicago yesterday</li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h2 style="margin-bottom: 50px;">Passionate about Scala</h2>
-                        <ul>
-                            <li class="fragment">Do it in Scala!</li>
-                            <li class="fragment">Awesome Libraries</li>
-                            <li class="fragment">Reactive == Win</li>
                         </ul>
                     </section>
                 </section>
@@ -143,7 +143,7 @@
                         <h2 style="margin-bottom: 50px;">Then Came Scala</h2>
                         <p class="fragment">
                             .. and Lift<br/>
-                            <img src="img/bundy_shrug.gif">
+                            <img src="img/shrug.gif">
                         </p>
                     </section>
                     <section>
@@ -180,8 +180,8 @@
                         <h2 style="margin-bottom: 50px;">Get Started</h2>
                         <ul>
                             <li class="fragment">Download <a href="https://typesafe.com/activator">Activator</a></li>
-                            <li class="fragment">Unzip and add to PATH</li>
-                            <li class="fragment">Run `activator new`</li>
+                            <li class="fragment">Unzip and add to <code>PATH</code></li>
+                            <li class="fragment">Run <code>activator new</code></li>
                         </ul>
                     </section>
                     <section>
@@ -224,11 +224,11 @@
                         <h2 style="margin-bottom: 50px;">Composition</h2>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 trait FunctionalController {
-  def Builder: ActionBuilder
+  def builder: ActionBuilder
   def failureView: Html
   def action[A](logic: => A,
                 renderer: A => Html,
-                failure: => Html = failureView) = Builder {
+                failure: => Html = failureView) = builder {
     Try(logic) map renderer recover { case _ => failure } map Ok
   }
 }
@@ -265,7 +265,7 @@ trait FunctionalController {
                         </code></pre>
                     </section>
                     <section>
-                        <h2 style="margin-bottom: 50px;">Composition</h2>
+                        <h2 style="margin-bottom: 50px;">Bigger Layouts</h2>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 type Layout = Html => Html
 
@@ -277,6 +277,9 @@ def composeLayout(views: Map[String, Future[Html]],
   Future sequence listOfFutureTuples map (_.toMap) map layout
 }
                         </code></pre>
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/dunk.gif">
                     </section>
                 </section>
 
@@ -295,14 +298,7 @@ type Map[A, B, In, Out] =
   (A, Service[In, Out]) => Future[B]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-type MapAdapter[A, B, In, Out] =
-  (Service[In, Out], Map[A, B, In, Out]) => Service[A, B]
-                        </code></pre>
-                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 type Filter[In, Out] = Map[In, Out, In, Out]
-                        </code></pre>
-                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-type FilterAdapter[In, Out] = MapAdapter[In, Out, In, Out]
                         </code></pre>
                     </section>
                     <section>
@@ -345,14 +341,105 @@ class AwesomeFilter[A, B](name: String,
 }
                         </code></pre>
                     </section>
+                    <section>
+                        <img class="fragment" src="img/carlton.gif">
+                    </section>
                 </section>
 
                 <section>
                     <section>
-                        <img class="fragment" src="img/dunk.gif">
+                        <h2 style="margin-bottom: 50px;">Application as a Function</h2>
+                        <h3>Seeing Everything as a Function</h3>
                     </section>
                     <section>
+                        <img class="fragment" src="img/matrix.gif">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Premise</h2>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+application: Configuration => (Request => Response)
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+class Dependencies(configuration: Configuration) {
+  val db = DB(configuration)
+  val system = System(configuration)
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">How It's Done</h2>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+var configuration = Configuration.current
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def service: Dependencies => (Request => Response)
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def application = Dependencies.apply andThen service
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def action(request: Request) = application(request)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/stewart-win.gif">
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The M-word</h2>
+                        <h3>Monads for Better Play</h3>
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/monads.jpg">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Explaining Monads</h2>
+                        <ul>
+                            <li class="fragment">Managing Computation</li>
+                            <li class="fragment">Well-Defined Semantics</li>
+                            <li class="fragment">Well-Defined Interface(s)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Well Known Monads</h2>
+                        <ul>
+                            <li class="fragment">Option - where answers may exist (<code>null</code>)</li>
+                            <li class="fragment">Try - failure management (<code>try</code>/<code>catch</code>)</li>
+                            <li class="fragment">Future - parallelization and failure management</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Useful Tools</h2>
+                        <h3>Reducing Boilerplate</h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Remember...</h2>
+                        <ul>
+                            <li class="fragment"><code>sbt</code> build is a Scala program</li>
+                            <li class="fragment"><code>sbt-boilerplate</code> - an <code>sbt</code> plugin</li>
+                            <li class="fragment">writing an embedded DSL in Scala is easy (see other talks)</li>
+                            <li class="fragment">writing a language in Scala is easy (parser-combinators)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/willsmithdance.gif">
+                    </section>
+                </section>
+
+                <section>
+                    <section>
                         <img class="fragment" src="img/end.gif">
+                    </section>
+                    <section>
+                        <img class="fragment" src="img/qna.gif">
                     </section>
                 </section>
 
