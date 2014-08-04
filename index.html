@@ -474,7 +474,7 @@ class AwesomeFilter[A, B](name: String,
                     <section>
                         <h2 style="margin-bottom: 50px;">The Premise</h2>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-application: Configuration => (Request => Response)
+application: Configuration => Service[Request, Response]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 class Dependencies(configuration: Configuration) {
@@ -489,7 +489,7 @@ class Dependencies(configuration: Configuration) {
 def configuration = Configuration.current
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def service: Dependencies => (Request => Response) = ???
+def service: Dependencies => Service[Request, Response] = ???
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def applicationBuilder = Dependencies.apply andThen service
@@ -523,7 +523,7 @@ def action = ActionBuilder { application }
                         <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
                         <h3>Let's Rewrite <code>application</code></h3>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def service: Dependencies => (Request => Response) = ???
+def service: Dependencies => Service[Request, Response] = ???
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def applicationBuilder = Reader(Dependencies.apply) map service
@@ -540,7 +540,7 @@ def action = ActionBuilder { application }
                         <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
                         <h3>&quot;Performance&quot;</h3>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def service: Dependencies => (Request => Response) = ???
+def service: Dependencies => Service[Request, Response] = ???
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 var currentConfiguration = Configuration.current
