@@ -69,18 +69,6 @@
                         <h5>twitter: @hhiranan</h5>
                     </section>
                     <section>
-                        <img height="400" width="900" src="img/matrix.gif">
-                    </section>
-                    <section>
-                        <img height="500" width="900" src="img/cook.gif">
-                    </section>
-                    <section>
-                        <img height="500" width="500" src="img/sneakers.gif">
-                    </section>
-                    <section>
-                        <img height="500" width="900" src="img/guitar.gif">
-                    </section>
-                    <section>
                         <img height="500" width="900" src="img/quake.gif">
                     </section>
                     <section>
@@ -223,12 +211,55 @@
                         <img height="400" width="900" src="img/shipeh.gif">
                     </section>
                     <section>
-                        <h2 style="margin-bottom: 50px;">Details</h2>
+                        <h2 style="margin-bottom: 50px;">Live Coding</h2>
                         <!-- TODO: redo and break-down -->
                         <img class="fragment" src="img/activator-incremental-compile.gif">
                     </section>
                     <section>
-                        <!-- TODO: introduce futures -->
+                        <h2 style="margin-bottom: 50px;">Components</h2>
+                        <h3 style="margin-bottom: 50px;">Routing</h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+GET     /search/:term    SearchController.search(term: String)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Components</h2>
+                        <h3 style="margin-bottom: 50px;">Controller</h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def search(term: String) = Action {
+  val results = performSearch(term)
+  Ok(views.search.results(results))
+}
+                        </code></pre>
+                        <div class="fragment">
+                            <h5 style="margin-bottom: 20px; margin-top: 30px;">... with Futures:</h5>
+                            <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def search(term: String) = Action {
+  val results = Future { performSearch(term) }
+  results map (Ok(views.search results _))
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Components</h2>
+                        <h3 style="margin-bottom: 50px;">Views</h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+@(results: List[SearchResult])
+
+<p>Found @results.size results</p>
+
+@if(!results.isEmpty) {
+<ul>
+  @for(result &lt;- results) {
+    <li>
+        <p><a href="@result.href">@result.title</a></p>
+        <p>@result.summary</p>
+    </li>
+  }
+</ul>
+}
+                        </code></pre>
                     </section>
                     <section>
                         <h2 style="margin-bottom: 50px;">Out of the Box You Get...</h2>
@@ -333,12 +364,9 @@ for {
                     <section>
                         <h2 style="margin-bottom: 50px;">By Default...</h2>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-class Controller {
-    def index = ActionBuilder {
-        // perform business logic and/or retrieve data
-        // set up view model
-        // render view model using templates
-    }
+def search(term: String) = Action {
+  val results = performSearch(term)
+  Ok(views.search.results(results))
 }
                         </code></pre>
                     </section>
@@ -362,7 +390,7 @@ trait FunctionalController {
                     <section>
                         <h2 style="margin-bottom: 50px;">Composition</h2>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-class Search extends FunctionalController {
+class SearchController extends FunctionalController {
   def Builder = MySpecialAction
   def failureView = views.search.failed
 
@@ -456,16 +484,21 @@ type Filter[In, Out] = Map[In, Out, In, Out]
                         </code></pre>
                     </section>
                     <section>
+                        <h2 style="margin-bottom: 50px;">Mental Model</h2>
+                        <img src="img/service.png">
+                    </section>
+                    <section>
                         <h2 style="margin-bottom: 50px;">Composition</h2>
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-type Filter[In, Out] = (In, Service[In, Out]) => Future[Out]
+type Map[A, B, In, Out] =
+  (A, Service[In, Out]) => Future[B]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-val filter: Filter[In, Out] = _
+val map: Map[A, B, In, Out] = _
 val inner: Service[In, Out] = _
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-val outer: Service[In, Out] = filter(_, inner)
+val outer: Service[A, B] = map(_, inner)
                         </code></pre>
                     </section>
                     <section>
@@ -582,8 +615,8 @@ trait Reader[Env, A] {
   def apply(env: Env): A
   def map(f: A => B): Reader[Env, B]
   def flatMap(f: A => Reader[Env, B]): Reader[Env, B]
-  def zipWith(f: (A, B) => C)(a: Reader[Env, A],
-                              b: Reader[Env, B]): Reader[Env, C]
+  def zipWith(f: (A, B) => C)
+             (b: Reader[Env, B]): Reader[Env, C]
 // ...
 }
                         </code></pre>
@@ -603,30 +636,24 @@ def service = applicationBuilder(Configuration.current)
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def action = ActionBuilder { service }
                         </code></pre>
-                        <p class="fragment">I don't need to rebuild my Dependencies object every time!</p>
                     </section>
                     <section>
                         <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
-                        <h3>&quot;Performance&quot;</h3>
+                        <h3 style="margin-bottom: 50px;">Remember ...</h3>
+                        <h5>Decomposing Logic &amp; Presentation</h5>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def servicer[A]: Dependencies => Service[Request, A]
+def presenter[A]: Dependencies => Service[A, Response]
+                        </code></pre>
+                        <p class="fragment">A bit of <code>Future</code>/<code>Service</code> glue</p>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def serviceBuilder: Dependencies => Service[Request, Response]
+def serviceChainer[A, B, C](first: Service[A, B], second: Service[B, C]) =
+  (a: A) => first(a) flatMap (b => second(b))
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-var currentConfiguration = Configuration.current
-def applicationBuilder = Reader(Dependencies.apply) map service
-def buildApplication = applicationBuilder(currentConfiguration)
-var currentApplication = buildApplication
+def serviceBuilder = Reader(servicer).zipWith(serviceChainer)(Reader(presenter))
                         </code></pre>
-                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def application = if (currentConfiguration eq Configuration.current) {
-                    currentApplication
-                  } else {
-                    currentConfiguration = Configuration.current
-                    currentApplication = buildApplication(currentConfiguration)
-                    currentApplication
-                  }
-                        </code></pre>
-                        <p class="fragment">Put it in a <code>trait</code> and forget about it!</p>
+                        <p class="fragment">Thank <code>Reader</code>.</p>
                     </section>
                     <section>
                         <h2 style="margin-bottom: 50px;">So What?</h2>
