@@ -231,13 +231,13 @@ GET     /search/:term    SearchController.search(term: String)
                         <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def search(term: String) = Action {
   val results = performSearch(term)
-  Ok(views.search.results(results))
+  Ok(views.search results results)
 }
                         </code></pre>
                         <div class="fragment">
                             <h5 style="margin-bottom: 20px; margin-top: 30px;">... with Futures:</h5>
                             <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def search(term: String) = Action {
+def search(term: String) = Action.async {
   val results = Future { performSearch(term) }
   results map (Ok(views.search results _))
 }
