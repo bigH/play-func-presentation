@@ -1,394 +1,762 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+    <head>
+        <meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+        <title>Play Framework Constructs</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+        <meta name="description" content="Func-tastic ways of Slicing and Dicing Play">
+        <meta name="author" content="Hiren Hiranandani">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/night.css" id="theme">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+        <style>
+            .left {
+                text-align:left;
+            }
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+            .right {
+                text-align:left;
+            }
 
-	<body>
+            .logo_container {
+                background-color: #fff;
+                border: none;
+                border-radius: 30px;
+                padding: 50px;
+            }
+        </style>
 
-		<div class="reveal">
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
 
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+    <body>
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <section>
+                    </section>
+                </section>
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>Cornify</p>
-						<a class="test" href="http://cornify.com">
-							<img width="280" height="326" src="https://s3.amazonaws.com/hakim-static/reveal-js/cornify.gif" alt="Unicorn">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px; color: #cfc;">Hiren Hiranandani</h2>
+                        <h5>github: @bigH</h5>
+                        <h5>twitter: @hhiranan</h5>
+                    </section>
+                    <section>
+                        <img height="500" width="900" src="img/quake.gif">
+                    </section>
+                    <section>
+                        <img height="500" width="900" src="img/happy.gif">
+                    </section>
+                    <section>
+                        <img height="500" width="900" src="img/turbocpp.gif">
+                    </section>
+                    <section>
+                        <img height="500" width="300" src="img/java.gif">
+                    </section>
+                    <section>
+                        <img height="400" width="900" src="img/angry.gif">
+                    </section>
+                    <section>
+                        <img height="500" width="700" src="img/haskell.png">
+                    </section>
+                    <section>
+                        <img height="350" width="900" src="img/scala.gif">
+                    </section>
+                    <section>
+                        <img height="350" width="900" src="img/powerful.gif">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">&quot;Scala Guy&quot;</h2>
+                        <ul>
+                            <li>Do it in Scala!</li>
+                            <li>Awesome Libraries</li>
+                            <li>Awesome Frameworks</li>
+                            <li>Evolving Language</li>
+                            <li>Reactive == Win</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img height="350" width="900" src="img/hifive.gif">
+                    </section>
+                    <section>
+                        <div class="logo_container" style="margin-bottom: 50px;">
+                            <img height="150" width="900" style="box-shadow: none; border: none;" src="img/bold-radius.png">
+                        </div>
+                        <ul>
+                            <li>Typesafe Certified Training</li>
+                            <li>Custom Scala Training</li>
+                            <li>Code-Review</li>
+                            <li>Mentoring</li>
+                            <li>Development</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img height="500" width="900" src="img/nolookfistbump.gif">
+                    </section>
+                </section>
 
-				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? No problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slid.es" target="_blank">http://slid.es</a>.
-					</p>
-				</section>
+                <section>
+                    <div class="left">
+                        <h1 style="margin-bottom: 50px; color: #cfc;"><em>Play Framework<br/>Constructs:</em></h1>
+                        <h3 style="margin-bottom: 50px;">Func-tastic ways of Slicing &amp; Dicing Play</h3>
+                        <h5 class="right">by <em style="color:#8f8">Hiren Hiranandani</em></h5>
+                    </div>
+                </section>
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+                <section>
+                    <h2 style="margin-bottom: 50px;">Poll</h2>
+                </section>
 
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
+                <section>
+                    <section>
+                        <h2>What is Play Framework?</h2>
+                        <h3>(read) Quick History Lesson</h3>
+                        <h3>... emphasis on <span style="color: #8f8;">Quick</span></h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Web Frameworks</h2>
+                        <ul>
+                            <li>Rails</li>
+                            <li>Django</li>
+                            <li>Spring MVC</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img height="400" width="900" src="img/shrug.gif">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Then Came Scala</h2>
+                        <h3>.. and Lift</h3>
+                        <ul>
+                            <li>Novel in Many Ways</li>
+                            <li>Painful in Many Ways</li>
+                            <li>Mini-Frameworking</li>
+                            <li>Focus on Community was Lacking</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Play Grows Up</h2>
+                        <ul>
+                            <li>Nice Mix of FP &amp; OO</li>
+                            <li>Plays Nice with other Technology</li>
+                            <li>Blend of the Best
+                                <ul>
+                                    <li>MVC Capable</li>
+                                    <li>Solid Templates</li>
+                                    <li>Great Type-Safety</li>
+                                    <li>Great JSON Support</li>
+                                    <li>Incremental Compilation</li>
+                                    <li>Async from the Bottom-Up</li>
+                                </ul>
+                            </li>
+                            <li>Leveraging Scala the Right Way!</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="img/pbj.gif">
+                    </section>
+                </section>
 
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+                <section>
+                    <section>
+                        <h2>Quick Tour of Play</h2>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Get Started</h2>
+                        <ul>
+                            <li class="fragment">Download <a href="https://typesafe.com/activator">Activator</a></li>
+                            <li class="fragment">Unzip and add to <code>PATH</code></li>
+                            <li class="fragment">Run <code>activator new</code></li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Creating a New App</h2>
+                        <img class="fragment" src="img/activator-new.gif">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">App Complete!</h2>
+                        <img height="400" width="900" src="img/shipeh.gif">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Live Coding</h2>
+                        <!-- TODO: redo and break-down -->
+                        <img class="fragment" src="img/activator-incremental-compile.gif">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Components</h2>
+                        <h3 style="margin-bottom: 50px;">Routing</h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+GET     /search/:term    SearchController.search(term: String)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Components</h2>
+                        <h3 style="margin-bottom: 50px;">Controller</h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def search(term: String) = Action {
+  val results = performSearch(term)
+  Ok(views.search.results(results))
+}
+                        </code></pre>
+                        <div class="fragment">
+                            <h5 style="margin-bottom: 20px; margin-top: 30px;">... with Futures:</h5>
+                            <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def search(term: String) = Action {
+  val results = Future { performSearch(term) }
+  results map (Ok(views.search results _))
+}
+                            </code></pre>
+                        </div>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Components</h2>
+                        <h3 style="margin-bottom: 50px;">Views</h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+@(results: List[SearchResult])
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+<p>Found @results.size results</p>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+@if(!results.isEmpty) {
+<ul>
+  @for(result &lt;- results) {
+    <li>
+        <p><a href="@result.href">@result.title</a></p>
+        <p>@result.summary</p>
+    </li>
+  }
+</ul>
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Out of the Box You Get...</h2>
+                        <ul>
+                            <li>Fully Configured Build</li>
+                            <li>Fully Functioning Scala Project</li>
+                            <li>Comes with Tests</li>
+                            <li>Comes with Tools</li>
+                            <li>IntelliJ: 'activator idea'</li>
+                            <li>Eclipse: 'activator eclipse'</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Play == Win</h2>
+                        <img height="400" width="900" src="img/win.gif">
+                    </section>
+                </section>
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The M-word</h2>
+                        <h3>Well Known Monads</h3>
+                    </section>
+                    <section>
+                        <img src="img/monads.jpg">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Explaining Monads</h2>
+                        <ul>
+                            <li>Managing Computation</li>
+                            <li>Well-Defined Semantics</li>
+                            <li>Well-Defined Interface(s)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Well Known Monads</h2>
+                        <h3><code>Option[T]</code></h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+val father = if (person == null) null else person.father
+val mother = if (father == null) null else father.mother
+val sister = if (mother == null) null else mother.sister
+                        </code></pre>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+for {
+  father &lt;- person.father
+  mother &lt;- father.mother
+  sister &lt;- mother.sister
+} yield sister
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Well Known Monads</h2>
+                        <h3><code>Try[T]</code></h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def tryReadInt(prompt: String) = Try(readLine(prompt)) map (_.toInt)
 
-						```
-						<section data-markdown>
-						  ## Markdown support
+def divide: Try[Int] = {
+  val problem = for {
+    numerator &lt;- tryReadInt("Enter Numerator:\n")
+    denominator &lt;- tryReadInt("Enter Denominator:\n")
+  } yield (numerator / denominator)
+  problem orElse {
+    println("Y U NO Make Sense! Try again.")
+    divide
+  }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Well Known Monads</h2>
+                        <h3><code>Future[T]</code></h3>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def getUser(id: String): Future[User]
+def getCart(user: User): Future[Cart]
+def getFriends(user: User): Future[List[User]]
+def getAffiliations(user: User): Future[List[Affiliation]]
+                        </code></pre>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+for {
+  user &lt;- getUser(id)
 
-						  For those of you who like that sort of thing.
-						  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
+  futureCart = getCart(user)
+  futureFriends = getFriends(user)
+  futureAffiliations = getAffiliations(user)
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
+  cart &lt;- futureCart
+  friends &lt;- futureFriends
+  affiliations &lt;- futureAffiliations
+} yield Response(...)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img height="500" width="800" src="img/daftfistbump.gif">
+                    </section>
+                </section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?#/themes">Default</a> -
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> <br>
-						<a href="?theme=moon#/themes">Moon</a> -
-						<a href="?theme=solarized#/themes">Solarized</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
-
-				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the background.
-					</p>
-				</section>
-
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
-				<section>
-					<section data-background="#007777">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#007777"</code> on a slide to change the full page background to the given color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Repeated Image Backgrounds</h2>
-						<pre><code style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-				</section>
-
-				<section data-transition="linear" data-background="#4d7e65" data-background-transition="slide">
-					<h2>Background Transitions</h2>
-					<p>
-						Pass reveal.js the <code>backgroundTransition: 'slide'</code> config argument to make backgrounds slide rather than fade.
-					</p>
-				</section>
-
-				<section data-transition="linear" data-background="#8c4738" data-background-transition="slide">
-					<h2>Background Transition Override</h2>
-					<p>
-						You can override background transitions per slide by using <code>data-background-transition="slide"</code>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Functions You See</h2>
+                        <h3>Controllers == Functions</h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">By Default...</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def search(term: String) = Action {
+  val results = performSearch(term)
+  Ok(views.search.results(results))
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Composition</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+trait FunctionalController {
+  def builder: ActionBuilder
+  def failureView(ex: Throwable): Html
+  def action[A](logic: => A,
+                renderer: A => Html,
+                failure: Throwable => Html = failureView) = builder {
+    Try(logic) map renderer match {
+      case Success(view) => Ok(view)
+      case Failure(ex)   => Error(failure(ex))
     }
   }
 }
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Composition</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+class SearchController extends FunctionalController {
+  def Builder = MySpecialAction
+  def failureView = views.search.failed
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+  def search(term: String) = action (
+    logic = performSearch(term),
+    renderer = views.search.results
+  )
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Functions You See</h2>
+                        <h3>Views == Functions</h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Layouts</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+trait FunctionalController {
+  def layout: Html => Html
+  def action[A](logic: => A,
+                renderer: A => Html,
+                failure: ...) = builder {
+    Try(logic) map (renderer andThen layout) match {
+      case Success(view) => Ok(view)
+      case Failure(ex)   => Error(failure(ex))
+    }
+  }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Bigger Layouts</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Layout = Html => Html
 
-				<section>
-					<section id="fragments">
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
+def composeLayout(views: Map[String, Future[Html]],
+                  layout: Map[String, Html] => Layout): Future[Layout] = {
+  val listOfFutureTuples = views map {
+    case (name, fHtml) => fHtml map ((name, _))
+  }
+  Future sequence listOfFutureTuples map (_.toMap) map layout
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Bigger Layouts</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Layout = Html => Html
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def widgets: Map[String, Future[Html]]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def layout(view: A => Html): Future[A => Html] = {
+  for {
+    layout &lt;- composeLayout(widgets, views.layouts.default)
+  } yield {
+    (a: A) => layout(view(a))
+  }
+}
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def search(term: String) = action (
+  logic = performSearch(term),
+  renderer = layout
+)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img height="500" width="500" src="img/happydance.gif">
+                    </section>
+                </section>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-current-blue">highlight-current-blue</p>
-					</section>
-				</section>
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Service as a Function</h2>
+                        <h3 style="margin-bottom: 50px;">REST with Functional Style</h3>
+                        <h5>Credit goes to @marius</h5>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Some Definitions</h2>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Service[In, Out] = (In => Future[Out])
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Map[A, B, In, Out] =
+  (A, Service[In, Out]) => Future[B]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Filter[In, Out] = Map[In, Out, In, Out]
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Mental Model</h2>
+                        <img src="img/service.png">
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Composition</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Map[A, B, In, Out] =
+  (A, Service[In, Out]) => Future[B]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+val map: Map[A, B, In, Out] = _
+val inner: Service[In, Out] = _
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+val outer: Service[A, B] = map(_, inner)
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Usage: Timer</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Filter[In, Out] = (In, Service[In, Out]) => Future[Out]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+class Timer[A, B](name: String) extends Filter[A, B] {
+  def now = System.currentTimeMillis
+  def apply(a: A, service: Service[A, B]): Future[B] = {
+    val start = now
+    val result = service(a)
+    result foreach {
+      _ => recordTime(name, now - start)
+    }
+    result
+  }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Usage: AwesomeFilter</h2>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+type Filter[In, Out] = (In, Service[In, Out]) => Future[Out]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+val filter: Filter[In, Out] = _
+val inner: Service[In, Out] = _
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+val outer: Service[In, Out] = filter(_, inner)
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+class AwesomeFilter[A, B](name: String,
+                          defaults: List[Filter[A, B]])
+      extends Filter[A, B] {
+  var filters = defaults
+  def addFilter(filter: Filter[A, B]) { ... }
+  def apply(a: A, service: Service[A, B]): Future[B] = {
+    filters.foldRight(service)((filter, acc) => filter(_, acc))
+  }
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img height="500" width="700" src="img/carlton.gif">
+                    </section>
+                </section>
 
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Application as a Function</h2>
+                        <h3>Seeing Everything as a Function</h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Premise</h2>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+application: Configuration => Service[Request, Response]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+service: Service[Request, Response]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+class Dependencies(configuration: Configuration) {
+  val db = DB(configuration)
+  val system = System(configuration)
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">How It's Done</h2>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def configuration = Configuration.current
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def serviceBuilder: Dependencies => Service[Request, Response]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def application = Dependencies.apply andThen serviceBuilder
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def service = applicationBuilder(configuration)
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def action = ActionBuilder { service }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <img height="500" width="600" src="img/stewart-win.gif">
+                    </section>
+                </section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The M-word continues...</h2>
+                        <h3>Monads for Better Play</h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
+                        <ul>
+                            <li>Analogous to Functions<br/>
+                                <code>Reader[A, B] ~ A => B</code>
+                            </li>
+                            <li>Common <em>Context</em> or <em>Environment</em></li>
+                            <li>Richer than functions</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
+                        <h3>Definitions</h3>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+trait Reader[Env, A] {
+  def apply(env: Env): A
+  def map(f: A => B): Reader[Env, B]
+  def flatMap(f: A => Reader[Env, B]): Reader[Env, B]
+  def zipWith(f: (A, B) => C)
+             (b: Reader[Env, B]): Reader[Env, C]
+// ...
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
+                        <h3>Let's Rewrite <code>application</code></h3>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def serviceBuilder: Dependencies => Service[Request, Response]
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def application = Reader(Dependencies.apply) map serviceBuilder
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def service = applicationBuilder(Configuration.current)
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def action = ActionBuilder { service }
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
+                        <h3 style="margin-bottom: 50px;">Remember ...</h3>
+                        <h5>Decomposing Logic &amp; Presentation</h5>
+                        <pre><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def servicer[A]: Dependencies => Service[Request, A]
+def presenter[A]: Dependencies => Service[A, Response]
+                        </code></pre>
+                        <p class="fragment">A bit of <code>Future</code>/<code>Service</code> glue</p>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def serviceChainer[A, B, C](first: Service[A, B], second: Service[B, C]) =
+  (a: A) => first(a) flatMap (b => second(b))
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def serviceBuilder = Reader(servicer).zipWith(serviceChainer)(Reader(presenter))
+                        </code></pre>
+                        <p class="fragment">Thank <code>Reader</code>.</p>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">So What?</h2>
+                        <h5 style="margin-bottom: 50px;">Reader is ...</h5>
+                        <ul>
+                            <li>Really Simple</li>
+                            <li>Easy to Build</li>
+                            <li>Good First &quot;Hard&quot; Monad</li>
+                            <li>Adapts to Your View</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img height="350" width="800" src="img/travolta-win.gif">
+                    </section>
+                </section>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Useful Tools</h2>
+                        <h3>Reducing Boilerplate</h3>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Remember...</h2>
+                        <ul>
+                            <li><code>sbt</code> build is a Scala program</li>
+                            <li><code>sbt-boilerplate</code> - an <code>sbt</code> plugin</li>
+                            <li>writing an embedded DSL in Scala is easy (see other talks)</li>
+                            <li>writing a language in Scala is easy (parser-combinators)</li>
+                            <li>that we also have macros</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img height="500" width="700" src="img/willsmithdance.gif">
+                    </section>
+                </section>
 
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="http://slid.es">Try the online editor</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">Source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow me on Twitter</a></li>
-					</ul>
-				</section>
+                <section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Simplify</h2>
+                        <ul>
+                            <li class="fragment">Small</li>
+                            <li class="fragment">Understandable</li>
+                            <li class="fragment">Cognitive Load</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Isolate</h2>
+                        <ul>
+                            <li class="fragment">Cross Cutting Concerns</li>
+                            <li class="fragment">Exactly <strong>One</strong> Thing</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2 style="margin-bottom: 50px;">Compose</h2>
+                        <ul>
+                            <li class="fragment">The Legos Way</li>
+                            <li class="fragment">Cut Along Dimensions</li>
+                            <li class="fragment">Build a Mental Model</li>
+                        </ul>
+                    </section>
+                </section>
 
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-				</section>
+                <section>
+                    <section>
+                        <img height="500" width="800" src="img/end.gif">
+                    </section>
+                    <section>
+                        <img src="img/qna.gif">
+                    </section>
+                </section>
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
 
-		<script>
+        <script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                slideNumber: true,
+                history: true,
+                center: true,
+                previewLinks: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+                theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+                // Parallax scrolling
+                // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+                // parallaxBackgroundSize: '2100px 900px',
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
 
-		</script>
+        </script>
 
-	</body>
+    </body>
 </html>
