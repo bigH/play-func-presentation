@@ -109,8 +109,6 @@ this.code = Ugly
                             <li>Do it in Scala!</li>
                             <li>Awesome Libraries</li>
                             <li>Awesome Frameworks</li>
-                            <li>Evolving Language</li>
-                            <li>Reactive == Win</li>
                         </ul>
                     </section>
                     <section>
@@ -168,8 +166,8 @@ this.code = Ugly
                         <ul>
                             <li>Novel in Many Ways</li>
                             <li>Painful in Many Ways</li>
-                            <li>Mini-Frameworking</li>
                             <li>Focus on Community was Lacking</li>
+                            <li>Mini-Frameworking</li>
                         </ul>
                     </section>
                     <section>
@@ -457,10 +455,11 @@ def layout(view: A => Html): Future[A => Html] = {
   }
 }
                         </code></pre>
+                        <p class="fragment">Assuming <code>action</code> supports <code>Future</code></p>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def search(term: String) = action (
   logic = performSearch(term),
-  renderer = layout
+  renderer = layout(views.search.results)
 )
                         </code></pre>
                     </section>
@@ -562,10 +561,10 @@ class AwesomeFilter[A, B](name: String,
                     <section>
                         <h2 style="margin-bottom: 50px;">The Premise</h2>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-application: Configuration => Service[Request, Response]
+service: Service[Request, Response]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-service: Service[Request, Response]
+application: Configuration => Service[Request, Response]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 class Dependencies(configuration: Configuration) {
@@ -583,7 +582,7 @@ def configuration = Configuration.current
 def serviceBuilder: Dependencies => Service[Request, Response]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def application = Dependencies.apply andThen serviceBuilder
+def applicationBuilder = Dependencies.apply andThen serviceBuilder
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def service = applicationBuilder(configuration)
@@ -630,13 +629,16 @@ trait Reader[Env, A] {
                         <h2 style="margin-bottom: 50px;">The Reader Monad</h2>
                         <h3>Let's Rewrite <code>application</code></h3>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
+def configuration = Configuration.current
+                        </code></pre>
+                        <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def serviceBuilder: Dependencies => Service[Request, Response]
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def application = Reader(Dependencies.apply) map serviceBuilder
+def applicationBuilder = Reader(Dependencies.apply) map serviceBuilder
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
-def service = applicationBuilder(Configuration.current)
+def service = applicationBuilder(configuration)
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def action = ActionBuilder { service }
@@ -653,7 +655,7 @@ def presenter[A]: Dependencies => Service[A, Response]
                         <p class="fragment">A bit of <code>Future</code>/<code>Service</code> glue</p>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def serviceChainer[A, B, C](first: Service[A, B], second: Service[B, C]) =
-  (a: A) => first(a) flatMap (b => second(b))
+  (a: A) => first(a) flatMap second
                         </code></pre>
                         <pre class="fragment"><code data-trim contenteditable style="font-size: 18px; margin-top: 20px;">
 def serviceBuilder = Reader(servicer).zipWith(serviceChainer)(Reader(presenter))
